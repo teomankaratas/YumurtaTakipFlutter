@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yumurtatakip2/constants/radius_constants.dart';
 
 TextFormField buildTextFormField(String labelText , TextEditingController textEditingController) {
     return TextFormField(
@@ -6,7 +7,7 @@ TextFormField buildTextFormField(String labelText , TextEditingController textEd
                 decoration: InputDecoration(
                   labelText: labelText,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                    borderRadius: BorderRadius.all(RadiusConstants.instance.circular16),
                   ),
                 ),
               );

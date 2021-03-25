@@ -5,7 +5,7 @@ import 'package:yumurtatakip2/utils/format_utils.dart';
 
 class MuhabbetYumurtaListScreen extends StatelessWidget {
   
-  final yumurtaListController = Get.put(YumurtaListController());
+  late final YumurtaListController yumurtaListController = Get.put(YumurtaListController())!;
 
   @override
   Widget build(BuildContext context) {
@@ -14,23 +14,23 @@ class MuhabbetYumurtaListScreen extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            yumurtaListController!.addYumurta();
+            yumurtaListController.addYumurta();
           },
         ),
         body: Container(
           child: Obx(
             () => ListView.builder(
-              itemCount: yumurtaListController!.yumurtaList.length,
+              itemCount: yumurtaListController.yumurtaList.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
                   leading: Text(
-                    yumurtaListController!.yumurtaList[index].yumurtaNo.toString() +
+                    yumurtaListController.yumurtaList[index].yumurtaNo.toString() +
                         '.Yumurta',
 
                   ),
-                  title: Text(Formats.instance.dateFormat.format(yumurtaListController!.yumurtaList[index].yumurtlanmaTarihi!)),
-                  subtitle: Text(Formats.instance.dateFormat.format(yumurtaListController!.yumurtaList[index].yumurtaCatlamaTarihi!)),
-                  onLongPress:()=> yumurtaListController!.deleteYumurta(yumurtaListController!.yumurtaList[index].id!),
+                  title: Text(Formats.instance.dateFormat.format(yumurtaListController.yumurtaList[index].yumurtlanmaTarihi!)),
+                  subtitle: Text(Formats.instance.dateFormat.format(yumurtaListController.yumurtaList[index].yumurtaCatlamaTarihi!)),
+                  onLongPress:()=> yumurtaListController.deleteYumurta(yumurtaListController.yumurtaList[index].id!),
                 );
               },
             ),

@@ -10,8 +10,8 @@ part 'muhabbet_cift_list_strings.dart';
 
 class MuhabbetCiftListScreen extends StatelessWidget {
   final _MuhabbetCiftListStrings stringValues = _MuhabbetCiftListStrings();
-
-  final ciftListController = Get.put(CiftListController());
+  late final CiftListController ciftListController = Get.put(CiftListController())! ;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class MuhabbetCiftListScreen extends StatelessWidget {
 
   ListView buildListView() {
     return ListView.builder(
-      itemCount: ciftListController!.ciftList.length,
+      itemCount: ciftListController.ciftList.length,
       itemBuilder: (BuildContext context, int index) {
         return buildListTile(index);
       },
@@ -40,13 +40,13 @@ class MuhabbetCiftListScreen extends StatelessWidget {
   ListTile buildListTile(int index) {
     return ListTile(
       leading: Text(
-        ciftListController!.ciftList[index].ciftNo.toString() +
+        ciftListController.ciftList[index].ciftNo.toString() +
             stringValues.ciftString,
       ),
-      onLongPress: () => ciftListController!
-          .deleteCift(ciftListController!.ciftList[index].id!),
-      onTap: () => ciftListController!
-          .goYumurtaScreen(ciftListController!.ciftList[index].ciftNo!),
+      onLongPress: () => ciftListController
+          .deleteCift(ciftListController.ciftList[index].id!),
+      onTap: () => ciftListController
+          .goYumurtaScreen(ciftListController.ciftList[index].ciftNo!),
     );
   }
 
@@ -74,7 +74,7 @@ class MuhabbetCiftListScreen extends StatelessWidget {
               Padding(
                 padding: PaddingConstants.instance.padding16301616,
                 child: buildTextFormField(stringValues.addDescription,
-                    ciftListController!.ciftNoTextController!),
+                    ciftListController.ciftNoTextController),
               ),
               buildtextButton(context),
             ],
@@ -86,7 +86,7 @@ class MuhabbetCiftListScreen extends StatelessWidget {
     return TextButton(
       style: ButtonStyle(),
       onPressed: () {
-        ciftListController!.addCift(context);
+        ciftListController.addCift(context);
       },
       child: Text(
         stringValues.addButtonString,

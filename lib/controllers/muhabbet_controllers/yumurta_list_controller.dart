@@ -12,7 +12,7 @@ class YumurtaListController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    secilenCiftNo= Get.arguments;
+    secilenCiftNo = Get.arguments;
     _getYumurtaList(secilenCiftNo!);
   }
 

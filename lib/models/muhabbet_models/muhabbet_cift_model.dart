@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+
 import 'package:yumurtatakip2/database/database_utils.dart';
 
 class MuhabbetCiftModel {
